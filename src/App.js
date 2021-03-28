@@ -5,14 +5,9 @@ import logo from './logo.png'
 
 export class App extends Component {
 
-  successResponse=(response)=> {
+  googleResponse=(response)=> {
     console.log(response);
     console.log(response.profileObj);
-    // console.log(response.email_verifiedObj);
-  }
-
-  failureResponse =(response) => {
-    console.log("Failed!!!")
   }
   
   render() {
@@ -22,8 +17,8 @@ export class App extends Component {
         <GoogleLogin className ="login-button"
           clientId="644041850309-32m3qpk5jlq07pmqem0tasjph8ge77pp.apps.googleusercontent.com"
           buttonText="Login"
-          onSuccess={this.successResponse}
-          onFailure = {this.failureResponse}
+          onSuccess={this.googleResponse}
+          onFailure = {this.googleResponse}
           cookiePolicy={'single_host_origin'}
           hostedDomain="oswego.edu"
         />
