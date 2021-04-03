@@ -25,5 +25,40 @@ code {
   margin-left: 50%;
   text-align: center;
   justify-content: center;
+}
 
+.tabs-style {
+    margin-top: 50px;
+    width: 30%;
+    margin-left: 30px;
+}
+
+.profile-container {
+  margin: 30px;
+  display: flex;
+}
+.face {
+  width: 22%;
+}
+
+.face img{
+  border: solid #CCC;
+  border-radius: 4px;
+  float: left;
+  max-width: 80%;
+  width: auto;
+  height: auto;
+}
+
+.text {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.headline {
+  margin: 0;
+}
+.quote {
+  margin: 0;
 }

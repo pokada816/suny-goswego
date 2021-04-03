@@ -34,7 +34,7 @@ function Navigation(props) {
                 </Link>
               </li>
 
-              <img src={user} style={{width: '40px', height: '40px'}}></img>
+              <img src={user} style={{width: '50px', height: '50px'}}></img>
             </ul>
           </div>
         
