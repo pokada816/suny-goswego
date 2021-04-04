@@ -2,7 +2,7 @@ import React from "react";
 import Profile from "./Profile.js";
 import user from "../assets/user.png"
 import {Tab, Tabs} from 'react-bootstrap'
-import DriverListing from './DriverListing.js'
+import Navigation from './Navigation.jsx'
 
 function Account() {
 
@@ -21,8 +21,10 @@ function Account() {
   }
 
   return (
-    <div className="account" >
-  
+    
+    <div>
+      <Navigation />
+
       <div class="profile-container">
           <br></br>
           <Profile

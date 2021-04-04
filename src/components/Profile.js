@@ -9,7 +9,7 @@ class Profile extends React.Component {
                         <img src = {this.props.photoSource} />  
                     </div>
                 
-                    <div className = "text"> 
+                    <div className = "profile-text"> 
                         <h1 className="headline"> {this.props.name} </h1>
                         <p className="quote"> Rating: {this.props.rating} </p>
                     </div>

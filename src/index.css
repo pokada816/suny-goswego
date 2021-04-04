@@ -50,8 +50,8 @@ code {
   height: auto;
 }
 
-.text {
-  padding: 8px;
+.profile-text {
+  padding: 10px 0px 0px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;

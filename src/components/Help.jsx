@@ -1,8 +1,10 @@
 import React from "react";
+import Navigation from './Navigation.jsx'
 
-function Account() {
+function Help() {
   return (
-    <div className="account">
+    <div>
+    <Navigation />
       <div class="container">
           <br></br>
             <h1 class="font-weight-light">Frequently Asked Questions:</h1>
@@ -17,4 +19,4 @@ function Account() {
   );
 }
 
-export default Account;
+export default Help;

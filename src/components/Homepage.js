@@ -3,16 +3,17 @@ import {Tabs, Tab } from 'react-bootstrap';
 import DriverListing from './DriverListing.js';
 import PassengerListing from './PassegerListing.js';
 import { Button, ButtonGroup } from 'react-bootstrap'
+import Navigation from './Navigation.jsx'
 
-class Home extends React.Component {
+class Homepage extends React.Component {
 
-    constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       selected: 'Driver Listings'
     }
-    }
+  }
 
   setSelected = (tab) => {
     this.setState({ selected:tab });
@@ -35,7 +36,9 @@ class Home extends React.Component {
 
     return (
       <div>
-          <ButtonGroup vertical className = "float-right" style = {{marginRight: "50px"}}>
+          <Navigation />
+
+          <ButtonGroup vertical className = "float-right" style = {{marginRight: "50px", marginTop : "5%"}}>
             <Button variant="success" style = {{marginBottom: "20px"}}> Create Driver Listing </Button>
             <Button variant="success"> Create Passenger Listing </Button>
           </ButtonGroup>
@@ -108,7 +111,7 @@ class Home extends React.Component {
                         depDate = "May 15, 2021"
                         depTime = "2:00PM"
                        > </PassengerListing>
-                       
+
                    </Tab>
 
                    <Tab eventKey="my-listings" title="My Listings">
@@ -125,4 +128,4 @@ class Home extends React.Component {
   
 }
 
-export default Home;
+export default Homepage;
