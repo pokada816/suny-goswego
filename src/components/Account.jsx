@@ -1,13 +1,20 @@
 import React from "react";
 import Profile from "./Profile.js";
-import user from "../assets/user.png"
+import userPhoto from "../assets/user.png"
 import {Tab, Tabs} from 'react-bootstrap'
 import Navigation from './Navigation.jsx'
 
 function Account() {
 
+  const authInstance = window.gapi.auth2.getAuthInstance()
+  const user = authInstance.currentUser.get()
+  const profile = user.getBasicProfile()
+  const email = profile.getEmail() 
+  const name = profile.getName()
+  const imageUrl = profile.getImageUrl()
+
   const role = "Driver/Passenger"
-  const email = "pokada@oswego.edu"
+  // const email = "pokada@oswego.edu"
   const phoneNumber = "315-608-9954"
   const completedListings = "20"
   const bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing. Neque egestas congue quisque egestas diam in arcu cursus. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate."
@@ -28,8 +35,8 @@ function Account() {
       <div class="profile-container">
           <br></br>
           <Profile
-            photoSource = {user}
-            name = "Jane Okada"
+            photoSource = {userPhoto}
+            name = {name}
             rating = "4.5/5"> 
           </Profile>
 

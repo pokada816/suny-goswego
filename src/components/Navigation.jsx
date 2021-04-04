@@ -1,8 +1,14 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import user from "../assets/user.png"
 
 function Navigation(props) {
+
+  const authInstance = window.gapi.auth2.getAuthInstance()
+  const user = authInstance.currentUser.get()
+  const profile = user.getBasicProfile()
+  const email = profile.getEmail() 
+  const imageUrl = profile.getImageUrl()
+
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -36,7 +42,8 @@ function Navigation(props) {
                 </Link>
               </li>
 
-              <img src={user} style={{width: '40px', height: '40px', marginRight: "20px"}}></img>
+              
+              <img src={imageUrl} style={{width: '40px', height: '40px', marginRight: "20px"}}></img>
             </ul>
           </div>
         
