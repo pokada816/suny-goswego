@@ -12,19 +12,20 @@ code {
     monospace;
 }
 
-.center{
+.login{
   text-align: center;
-  display: block;
+  /* display: block; */
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+.login #logo {
   width: 50%;
 }
 
-.login-button {
-  margin-left: 50%;
-  text-align: center;
-  justify-content: center;
+#login-button > div {
+  margin: 0 auto;
 }
 
 .tabs-style {

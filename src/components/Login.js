@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/logo.png'
 
 class Login extends React.Component {
 
@@ -15,7 +16,8 @@ class Login extends React.Component {
         }
 
         return (
-            <div> 
+            <div className = "login"> 
+                <img src={logo} id="logo"/>
                 <div id ="login-button"> Sign in with Google </div>
             </div> 
         );
