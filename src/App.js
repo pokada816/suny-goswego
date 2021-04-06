@@ -35,7 +35,7 @@ class App extends React.Component {
       document.body.appendChild(script)
     }
 
-    // if user is signed in show homepage, if not show login page
+    // if user is signed in show homepage, if not show login
     ifUserSignedIn(Component) { 
       return this.state.isSignedIn ?
         <Component /> :
@@ -46,7 +46,7 @@ class App extends React.Component {
       return (
         <Router>
           <Switch>
-            <Route exact path="/" render = {() => 
+            <Route exact path="/" render = {() => // default to homepage (or login page if not signed in)
                 this.ifUserSignedIn(Homepage)}>
             </Route> 
 
