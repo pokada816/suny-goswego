@@ -36,91 +36,91 @@ class Homepage extends React.Component {
 
     return (
       <div>
-          <Navigation />
+        <Navigation />
 
-          <ButtonGroup vertical className = "float-right" style = {{marginRight: "50px", marginTop : "5%"}}>
-            <Button variant="success" style = {{marginBottom: "20px"}}> Create Driver Listing </Button>
-            <Button variant="success"> Create Passenger Listing </Button>
-          </ButtonGroup>
+        <ButtonGroup vertical className = "float-right" style = {{marginRight: "50px", marginTop : "5%"}}>
+          <Button variant="success" style = {{marginBottom: "20px"}}> Create Driver Listing </Button>
+          <Button variant="success"> Create Passenger Listing </Button>
+        </ButtonGroup>
           
-          <div className = "tabs-style">
-                <h1 style={{marginBottom: '20px'}}> Listings </h1>
+        <div className = "tabs-style">
+          <h1 style={{marginBottom: '20px'}}> Listings </h1>
 
-               <Tabs defaultActiveKey="driver-listings" transition={false} id="noanim-tab-example">
-                   <Tab eventKey="driver-listings" title="Driver Listings" style={tabstyle}>
-                      <DriverListing
-                          name="Liam C."
-                          startLoc="Marano Campus Center"
-                          dest="Destiny Mall"
-                          depDate = "March 31, 2021"
-                          depTime = "12:00PM"
-                          >
-                      </DriverListing>
+          {/* Tabs component from ReactBootstrap */}
+          <Tabs defaultActiveKey="driver-listings" transition={false} id="noanim-tab-example">
+              <Tab eventKey="driver-listings" title="Driver Listings" style={tabstyle}>
+                <DriverListing
+                    name="Liam C."
+                    startLoc="Marano Campus Center"
+                    dest="Destiny Mall"
+                    depDate = "March 31, 2021"
+                    depTime = "12:00PM"
+                    >
+                </DriverListing>
 
-                      <DriverListing
-                          name="Jane O."
-                          startLoc="Hart Hall"
-                          dest="Hancock Airport"
-                          depDate = "May 15, 2021"
-                          depTime = "2:00PM"
-                          >
-                      </DriverListing>
+                <DriverListing
+                    name="Jane O."
+                    startLoc="Hart Hall"
+                    dest="Hancock Airport"
+                    depDate = "May 15, 2021"
+                    depTime = "2:00PM"
+                    >
+                </DriverListing>
 
 
-                      <DriverListing
-                          name="Ethan S."
-                          startLoc="Hart Hall"
-                          dest="Hancock Airport"
-                          depDate = "May 15, 2021"
-                          depTime = "2:00PM"
-                          >
-                      </DriverListing>
+                <DriverListing
+                    name="Ethan S."
+                    startLoc="Hart Hall"
+                    dest="Hancock Airport"
+                    depDate = "May 15, 2021"
+                    depTime = "2:00PM"
+                    >
+                </DriverListing>
 
-                      <DriverListing
-                          name="Ayinde E."
-                          startLoc="Hart Hall"
-                          dest="Hancock Airport"
-                          depDate = "May 15, 2021"
-                          depTime = "2:00PM"
-                          >
-                      </DriverListing>
+                <DriverListing
+                    name="Ayinde E."
+                    startLoc="Hart Hall"
+                    dest="Hancock Airport"
+                    depDate = "May 15, 2021"
+                    depTime = "2:00PM"
+                    >
+                </DriverListing>
 
-                   </Tab>
-                   
-                   <Tab eventKey="passenger-listings" title="Passenger Listings" style={tabstyle}>
-                       <PassengerListing
-                        name="Jane O."
-                        startLoc="Hart Hall"
-                        dest="Hancock Airport"
-                        depDate = "May 15, 2021"
-                        depTime = "2:00PM"
-                       > </PassengerListing>
+              </Tab>
+              
+              <Tab eventKey="passenger-listings" title="Passenger Listings" style={tabstyle}>
+                  <PassengerListing
+                  name="Jane O."
+                  startLoc="Hart Hall"
+                  dest="Hancock Airport"
+                  depDate = "May 15, 2021"
+                  depTime = "2:00PM"
+                  > </PassengerListing>
 
-                       <PassengerListing
-                        name="Jane O."
-                        startLoc="Hart Hall"
-                        dest="Hancock Airport"
-                        depDate = "May 15, 2021"
-                        depTime = "2:00PM"
-                       > </PassengerListing>
+                  <PassengerListing
+                  name="Jane O."
+                  startLoc="Hart Hall"
+                  dest="Hancock Airport"
+                  depDate = "May 15, 2021"
+                  depTime = "2:00PM"
+                  > </PassengerListing>
 
-                       <PassengerListing
-                        name="Jane O."
-                        startLoc="Hart Hall"
-                        dest="Hancock Airport"
-                        depDate = "May 15, 2021"
-                        depTime = "2:00PM"
-                       > </PassengerListing>
+                  <PassengerListing
+                  name="Jane O."
+                  startLoc="Hart Hall"
+                  dest="Hancock Airport"
+                  depDate = "May 15, 2021"
+                  depTime = "2:00PM"
+                  > </PassengerListing>
 
-                   </Tab>
+              </Tab>
 
-                   <Tab eventKey="my-listings" title="My Listings">
-                       <p> Here are my listings </p>
-                   </Tab>
-               </Tabs>
+              <Tab eventKey="my-listings" title="My Listings">
+                  <p> Here are my listings </p>
+              </Tab>
+          </Tabs>
 
-           </div>
-
+        </div>
           
       </div>
     );

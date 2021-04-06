@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Does nothing -- ignore for now
 class Tab extends React.Component {
 
     render () {

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
 
+// dis the navbar 
+
 function Navigation(props) {
 
   const authInstance = window.gapi.auth2.getAuthInstance()

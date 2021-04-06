@@ -3,7 +3,6 @@ import {Button} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons'
 
-
 class PassengerListing extends React.Component { 
     render() {
 

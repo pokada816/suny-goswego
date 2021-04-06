@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Homepage from "./components/Homepage.js";
 import Account from "./components/Account.jsx";
 import Help from "./components/Help.jsx";
@@ -27,6 +27,7 @@ class App extends React.Component {
       })
     }
 
+    // just some import for google signin
     componentDidMount() {
       const script = document.createElement('script')
       script.src = 'https://apis.google.com/js/platform.js'
@@ -34,6 +35,7 @@ class App extends React.Component {
       document.body.appendChild(script)
     }
 
+    // if user is signed in show homepage, if not show login page
     ifUserSignedIn(Component) { 
       return this.state.isSignedIn ?
         <Component /> :
@@ -55,7 +57,6 @@ class App extends React.Component {
         </Router>
       );
     }
-    
 }
 
 export default App 

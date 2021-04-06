@@ -6,6 +6,7 @@ import Navigation from './Navigation.jsx'
 
 function Account() {
 
+  // some user information gathered from their oswego.edu account
   const authInstance = window.gapi.auth2.getAuthInstance()
   const user = authInstance.currentUser.get()
   const profile = user.getBasicProfile()
@@ -13,8 +14,8 @@ function Account() {
   const name = profile.getName()
   const imageUrl = profile.getImageUrl()
 
+  // my own dummy data
   const role = "Driver/Passenger"
-  // const email = "pokada@oswego.edu"
   const phoneNumber = "315-608-9954"
   const completedListings = "20"
   const bio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet tellus cras adipiscing. Neque egestas congue quisque egestas diam in arcu cursus. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend donec pretium vulputate."
@@ -44,23 +45,23 @@ function Account() {
 
       <div className = "tabs-style">
                
-               <Tabs defaultActiveKey="about" transition={false} id="noanim-tab-example">
-                   <Tab eventKey="about" title="About" style={tabstyle}>
-                     <br/>
-                    <p> <strong> Role(s): </strong> {role} </p>
-                    <p> <strong> Email: </strong> {email} </p>
-                    <p> <strong> Phone number: </strong> {phoneNumber} </p>
-                    <p> <strong> Completed Listings: </strong> {completedListings} </p>
-                    <p> <strong> Short Bio: </strong> {bio} </p>
-                   </Tab>
-                   
-                   <Tab eventKey="past-listings" title="Past Listings" style={tabstyle}>
-                       <p> Here are my past listings</p> 
-                   </Tab>
+          <Tabs defaultActiveKey="about" transition={false} id="noanim-tab-example">
+              <Tab eventKey="about" title="About" style={tabstyle}>
+                <br/>
+              <p> <strong> Role(s): </strong> {role} </p>
+              <p> <strong> Email: </strong> {email} </p>
+              <p> <strong> Phone number: </strong> {phoneNumber} </p>
+              <p> <strong> Completed Listings: </strong> {completedListings} </p>
+              <p> <strong> Short Bio: </strong> {bio} </p>
+              </Tab>
+              
+              <Tab eventKey="past-listings" title="Past Listings" style={tabstyle}>
+                  <p> Here are my past listings</p> 
+              </Tab>
 
-               </Tabs>
+          </Tabs>
 
-           </div>
+        </div>
     </div>
   );
 }
