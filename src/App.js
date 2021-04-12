@@ -4,6 +4,7 @@ import Homepage from "./components/Homepage.js";
 import Account from "./components/Account.jsx";
 import Help from "./components/Help.jsx";
 import Login from "./components/Login.js"
+import RegistrationForm from "./components/RegistrationForm"
 
 class App extends React.Component {
 
@@ -11,7 +12,8 @@ class App extends React.Component {
       super(props)
 
       this.state = {
-        isSignedIn: null
+        isSignedIn: null,
+        isRegistered: false
       }
     }
 
@@ -36,10 +38,16 @@ class App extends React.Component {
     }
 
     // if user is signed in show homepage, if not show login
-    ifUserSignedIn(Component) { 
-      return this.state.isSignedIn ?
-        <Component /> :
-        <Login isSignedIn={this.state.isSignedIn}/>
+    ifUserSignedInAndRegistered(Component) { 
+      if (this.state.isSignedIn) {
+        if (this.state.isRegistered) {
+          return <Homepage />
+        } else {
+          return <RegistrationForm isRegistered={this.state.isRegistered}/>
+        } 
+      } else {
+        return <Login isSignedIn={this.state.isSignedIn}/>
+      }
     }
 
     render() {
@@ -47,11 +55,13 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path="/" render = {() => // default to homepage (or login page if not signed in)
-                this.ifUserSignedIn(Homepage)}>
+                this.ifUserSignedInAndRegistered(Homepage)
+                }>
             </Route> 
 
             <Route exact path="/account" exact component={() => <Account />} />
             <Route exact path="/help" exact component={() => <Help />} />
+
           </Switch>
           
         </Router>

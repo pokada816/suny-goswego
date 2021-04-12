@@ -1,52 +1,43 @@
 import React from "react";
-import {Tabs, Tab } from 'react-bootstrap';
+import {Tabs, Tab , Card, Nav } from 'react-bootstrap';
 import DriverListing from './DriverListing.js';
 import PassengerListing from './PassegerListing.js';
 import { Button, ButtonGroup } from 'react-bootstrap'
 import Navigation from './Navigation.jsx'
+import PLForm from './PLForm.js'
+import DLForm from './DLForm.js'
 
 class Homepage extends React.Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      selected: 'Driver Listings'
-    }
-  }
-
-  setSelected = (tab) => {
-    this.setState({ selected:tab });
   }
 
   render() {
 
-    const buttonStyle = {
-      marginRight: "50px",
-      marginBottom: "20px"
-    }
-
     const tabstyle = {
-      height: '400px',
-      width: '700px',
+      height: '28rem',
+      width: '58rem',
       overflowY: 'scroll',
-      border: "solid 1px",
-      paddingLeft: "10px" 
-  }
+      border: "solid 1px rgba(0,0,0,0.5)",
+      borderRadius: "2px",
+      boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+    }
 
     return (
       <div>
         <Navigation />
-
+        <div> 
         <ButtonGroup vertical className = "float-right" style = {{marginRight: "50px", marginTop : "5%"}}>
-          <Button variant="success" style = {{marginBottom: "20px"}}> Create Driver Listing </Button>
-          <Button variant="success"> Create Passenger Listing </Button>
+          <DLForm/> 
+          {/* <Button variant="success" style = {{marginBottom: "20px"}}> Create Driver Listing </Button> */}
+          {/* <Button variant="success" onClick={PLForm}> Create Passenger Listing </Button> */}
+          <PLForm />
         </ButtonGroup>
           
         <div className = "tabs-style">
-          <h1 style={{marginBottom: '20px'}}> Listings </h1>
+          <h1 style={{marginBottom: '20px'}}> All Listings </h1>
 
-          {/* Tabs component from ReactBootstrap */}
           <Tabs defaultActiveKey="driver-listings" transition={false} id="noanim-tab-example">
               <Tab eventKey="driver-listings" title="Driver Listings" style={tabstyle}>
                 <DriverListing
@@ -66,7 +57,6 @@ class Homepage extends React.Component {
                     depTime = "2:00PM"
                     >
                 </DriverListing>
-
 
                 <DriverListing
                     name="Ethan S."
@@ -122,6 +112,8 @@ class Homepage extends React.Component {
 
         </div>
           
+        </div>
+        
       </div>
     );
   }

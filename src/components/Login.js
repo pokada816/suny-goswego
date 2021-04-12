@@ -11,10 +11,6 @@ class Login extends React.Component {
 
     render () {
 
-        if (this.props.signedIn === null) {
-            return <h1> Checking if you're signed in. </h1>
-        }
-
         return (
             <div className = "login"> 
                 <img src={logo} id="logo"/>
