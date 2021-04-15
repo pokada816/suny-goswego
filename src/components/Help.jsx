@@ -1,10 +1,10 @@
 import React from "react";
 import Navigation from './Navigation.jsx'
 
-function Help() {
+function Help(props) {
   return (
     <div>
-    <Navigation />
+    <Navigation imageUrl = {props.info.imageUrl} />
       <div class="container">
           <br></br>
             <h1 class="font-weight-light">Frequently Asked Questions:</h1>

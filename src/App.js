@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Homepage from "./components/Homepage.js";
 import Account from "./components/Account.jsx";
 import Help from "./components/Help.jsx";
-import Login from "./components/Login.js"
-import RegistrationForm from "./components/RegistrationForm"
+import Login from "./components/Login.js";
+import RegistrationForm from "./components/RegistrationForm.js";
 
 class App extends React.Component {
 
@@ -13,18 +13,33 @@ class App extends React.Component {
 
       this.state = {
         isSignedIn: null,
-        isRegistered: false
+        isRegistered: true,
+        email: '',
+        name: '',
+        imageUrl: ''
       }
     }
 
     initializeGoogleSignIn() {
       window.gapi.load('auth2', () => {
-        const authInstance = window.gapi.auth2.getAuthInstance()
-        const isSignedIn = authInstance.isSignedIn.get()
-        this.setState({isSignedIn})
+        window.gapi.auth2.init({
+          client_id: '644041850309-32m3qpk5jlq07pmqem0tasjph8ge77pp.apps.googleusercontent.com',
+          hosted_domain: 'oswego.edu'
+        }).then(() => {
+          const authInstance = window.gapi.auth2.getAuthInstance()
+          const isSignedIn = authInstance.isSignedIn.get()
+          const user = authInstance.currentUser.get()
+          const profile = user.getBasicProfile()
+          const email = profile.getEmail() 
+          const name = profile.getName()
+          const imageUrl = profile.getImageUrl()
 
-        authInstance.isSignedIn.listen(isSignedIn => {
           this.setState({isSignedIn})
+          this.setState({email: email, name: name, imageUrl: imageUrl})
+
+          authInstance.isSignedIn.listen(isSignedIn => {
+            this.setState({isSignedIn})
+          })
         })
       })
     }
@@ -41,7 +56,7 @@ class App extends React.Component {
     ifUserSignedInAndRegistered(Component) { 
       if (this.state.isSignedIn) {
         if (this.state.isRegistered) {
-          return <Homepage />
+          return <Homepage info = {this.state} />
         } else {
           return <RegistrationForm isRegistered={this.state.isRegistered}/>
         } 
@@ -59,8 +74,8 @@ class App extends React.Component {
                 }>
             </Route> 
 
-            <Route exact path="/account" exact component={() => <Account />} />
-            <Route exact path="/help" exact component={() => <Help />} />
+            <Route exact path="/account" exact component={() => <Account info = {this.state} />} />
+            <Route exact path="/help" exact component={() => <Help info = {this.state}/>} />
 
           </Switch>
           

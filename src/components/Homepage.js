@@ -26,7 +26,7 @@ class Homepage extends React.Component {
 
     return (
       <div>
-        <Navigation />
+        <Navigation imageUrl={this.props.info.imageUrl}/>
         <div> 
         <ButtonGroup vertical className = "float-right" style = {{marginRight: "50px", marginTop : "5%"}}>
           <DLForm/> 

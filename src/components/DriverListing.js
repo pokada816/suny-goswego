@@ -10,7 +10,6 @@ class DriverListing extends React.Component {
             borderBottom: "solid",
             padding: "10px 0px 10px 10px",
             borderWidth: "thin",
-            // margin: "10px"
           };
 
         return (

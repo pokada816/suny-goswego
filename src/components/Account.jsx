@@ -1,18 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Profile from "./Profile.js";
 import userPhoto from "../assets/user.png"
-import {Tab, Tabs} from 'react-bootstrap'
+import {Tab, Tabs, Button} from 'react-bootstrap'
 import Navigation from './Navigation.jsx'
 
-function Account() {
+function Account(props) {
 
-  // some user information gathered from their oswego.edu account
-  const authInstance = window.gapi.auth2.getAuthInstance()
-  const user = authInstance.currentUser.get()
-  const profile = user.getBasicProfile()
-  const email = profile.getEmail() 
-  const name = profile.getName()
-  const imageUrl = profile.getImageUrl()
+  const [isDriver, setDriverState] = useState(1);
 
   // my own dummy data
   const role = "Driver/Passenger"
@@ -28,28 +22,30 @@ function Account() {
       paddingLeft: "10px" 
   }
 
-  return (
-    
-    <div>
-      <Navigation />
+  const btnStyle = {
+    display: {isDriver} === 0 ? "inline" : "none"
+  }
 
+  return (
+    <div>
+      <Navigation imageUrl = {props.info.imageUrl} />
+      <Button className="float-right mt-5 mr-5" size="lg" style={btnStyle}> Become a Driver </Button>
       <div class="profile-container">
           <br></br>
           <Profile
             photoSource = {userPhoto}
-            name = {name}
+            name = {props.info.name}
             rating = "4.5/5"> 
           </Profile>
-
       </div>
 
       <div className = "tabs-style">
-               
+              
           <Tabs defaultActiveKey="about" transition={false} id="noanim-tab-example">
               <Tab eventKey="about" title="About" style={tabstyle}>
                 <br/>
               <p> <strong> Role(s): </strong> {role} </p>
-              <p> <strong> Email: </strong> {email} </p>
+              <p> <strong> Email: </strong> {props.info.email} </p>
               <p> <strong> Phone number: </strong> {phoneNumber} </p>
               <p> <strong> Completed Listings: </strong> {completedListings} </p>
               <p> <strong> Short Bio: </strong> {bio} </p>
